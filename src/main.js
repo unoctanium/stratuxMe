@@ -1,6 +1,10 @@
 import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
+import App from '@/App'
+import router from '@/router'
+
+// import stratux
+import StratuxVue from '@/plugins/StratuxVue'
+Vue.use(StratuxVue)
 
 Vue.config.productionTip = false
 
