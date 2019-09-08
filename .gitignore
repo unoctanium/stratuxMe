@@ -51,26 +51,3 @@ pids
 package-lock.json
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Production build
-platforms/
-plugins/
-www/
-dist/
-
-
-
