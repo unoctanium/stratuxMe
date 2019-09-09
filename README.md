@@ -1,4 +1,4 @@
-# stratuxme2
+# stratuxMe
 
 ## Project setup
 ```
