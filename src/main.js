@@ -8,6 +8,10 @@ Vue.use(StratuxVue)
 
 Vue.config.productionTip = false
 
+// Declare cordova
+Vue.cordova = Vue.prototype.$cordova = window.cordova
+
+
 new Vue({
   router,
   render: h => h(App)

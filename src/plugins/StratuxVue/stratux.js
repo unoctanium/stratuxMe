@@ -81,11 +81,11 @@ const actions = {
     var socket = new WebSocket("ws://192.168.1.1/" + url)
     props.tempSocket.socket = socket
 
-    socket.onopen = function(event) {
+    socket.onopen = function() {
       console.log("socket opened: " + url)
     }
 
-    socket.onclose = function(event) {
+    socket.onclose = function() {
       console.log("socket closed: " + url)
       if (props.tempSocket.reconnectTimeoutId) 
         clearTimeout(props.tempSocket.reconnectTimeoutId)
@@ -160,15 +160,16 @@ const actions = {
       actions.debugAxiosError(error)
     })
     */
-    
+    console.log(message)
     
     fetch(url, {
       //credentials: 'same-origin', // 'include', default: 'omit'
       //mode: "cors",
+      crossDomain: true,
       method: 'POST',             // 'GET', 'PUT', 'DELETE', etc.
       body: '', // JSON.stringify(data), // Use correct payload (matching 'Content-Type')
       headers: { 
-        'Accept': 'application/zip',
+        //'Accept': 'application/zip',
         'Content-Type': 'application/json',
       },
     })
@@ -256,6 +257,23 @@ const actions = {
   downloadAHRSLog() { actions.postAxios(api.downloadahrslogs.url, "") }, //Target?
   deleteAHRSLog() { actions.postAxios(api.deleteahrslogfiles.url, "") }, //Target?
   downloadDB() { actions.postAxios(api.downloaddb.url, "") }, //Target?
+
+  test() {
+    //Vue.cordova.plugin.http.setHeader('*', 'Content-Type', 'text/plain')
+    //Vue.cordova.plugin.http.setHeader('*', 'User-Agent', '')
+    let url = 'http://192.168.1.1/downloadlog';
+    let params = {dataType: 'json'};
+    let headers = {'Content-Type': 'application/zip'};
+    Vue.cordova.plugin.http.post(url, 
+        params, headers, (response) => {
+      //console.log(response.status)
+      console.log(response)
+      alert(response)
+    }, function(response) {
+      console.error(response.error)
+      alert(response.error)
+    })
+  }
 
 
 }

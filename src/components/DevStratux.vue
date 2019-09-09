@@ -34,8 +34,17 @@
         <button @click="$stratux.actions.downloadDB">Dwl DB</button>
         <button @click="$stratux.actions.deleteLog">Del Log</button>
         <button @click="$stratux.actions.deleteAHRSLog">Del AHRS Log</button>
-        
-        
+        <button @click="$stratux.actions.test">Test</button>
+        <br>
+        <a href="http://192.168.1.1/downloadlog" @click="$stratux.actions.downloadLog">Download Logfile Post</a>
+        <br>
+        <a href="http://192.168.1.1/downloadlog" target="_self">Download Logfile Link</a>
+        <br>
+        <a target="_blank" href="http://192.168.1.1/logs/stratux.log">stratux.log</a>
+        <br>
+        <a target="_self" href="http://192.168.1.1/logs/stratux.log">stratux.log self</a>
+        <br>
+        <a target="_blank" href="http://192.168.1.1/view_logs/">SDR, AHRS, and GPS logs</a>	  
       </p>
     </div>
     <ul>
@@ -63,9 +72,9 @@ export default {
     }
   },
   methods: {
-    sendMessage(message) {
-      this.$stratux.actions.subscribeSettings(1)
-    }
+    // sendMessage(message) {
+    //   this.$stratux.actions.subscribeSettings(1)
+    // }
   }
 }
 </script>

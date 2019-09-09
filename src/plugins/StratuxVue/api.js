@@ -48,6 +48,11 @@ const api =
 
 export default api
 
+/*
+/logs/stratux.log
+/view_logs/
+
+*/
 
 /*
 status
